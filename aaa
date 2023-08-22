@@ -2539,4 +2539,871 @@ public class TablePaging implements Serializable{
   
   
   
-  
+  package com.tingyun.network.api.report.bean.apireport;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.apache.commons.lang3.time.DateUtils;
+
+import java.util.Date;
+import java.util.List;
+
+public class ReportRequest {
+
+    /***
+     * 任务id列表
+     */
+    private Integer[] taskIds;
+    /***
+     * 开始时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private Date beginTime;
+    /***
+     * 结束时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private Date endTime;
+    /***
+     * 时间区间
+     */
+    private int timePeriod;
+    /***
+     * 0 :绝对时间，1：相对时间
+     */
+    private int timeMode;
+
+    /***
+     * 表头显示指标
+     */
+    private List<String> tableIndicators;
+    /***
+     * 菜单枚举, trend ,regional,map,host,error,scatter
+     */
+    private String menu;
+    /***
+     * 分组类型
+     */
+    private String groupBy;
+
+    //分页相关属性
+
+    /**
+     * 记录总数
+     */
+    private long total;
+    /**
+     * 每一页大小
+     */
+    private int pageSize = 50;
+    /**
+     * 当前第几页
+     */
+    private int currentPage = 1;
+    /**
+     * 总共多少页
+     */
+    private int totalPages;
+
+
+    private ApiNodeFilterOptions nodeFilterOptions;
+
+    private ApiCondition condition;
+
+
+    private ApiPerfFilterOptions perfFilter;
+
+    private ApiErrorFilterOptions errorFilter;
+
+    private ApiElemHostFilterOptions elemHostFilter;
+
+    private ApiOtherFilterOptions otherFilter;
+
+    public long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+
+    public int getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
+    }
+
+
+
+    public int getPageStart() {
+        return pageSize * (currentPage - 1);
+    }
+
+
+
+
+
+    public String getTaskIdsStr() {
+        StringBuilder b = new StringBuilder();
+        if (taskIds == null || taskIds.length == 0)
+            return null;
+        int iMax = taskIds.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(taskIds[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+    }
+
+    public int getTimeMode() {
+        return timeMode;
+    }
+
+    public void setTimeMode(int timeMode) {
+        this.timeMode = timeMode;
+    }
+
+
+    public int getTimeCount() {
+        if (getEndTime() == null || getBeginTime() == null)
+            return 0;
+        return (int) ((getEndTime().getTime() - getBeginTime().getTime()) / 60000);
+    }
+
+
+
+
+
+
+    public Date getBeginTime() {
+        if (timeMode == 1 || beginTime == null) {
+            setBeginTime(DateUtils.addMinutes(getEndTime(), -1 * timePeriod));
+        }
+        return beginTime;
+    }
+
+    public void setBeginTime(Date beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public Date getEndTime() {
+        if (endTime == null) {
+            setEndTime(new Date());
+        }
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setTaskIds(Integer[] taskIds) {
+        this.taskIds = taskIds;
+    }
+
+    public void setTimePeriod(int timePeriod) {
+        this.timePeriod = timePeriod;
+    }
+
+    public void setTableIndicators(List<String> tableIndicators) {
+        this.tableIndicators = tableIndicators;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
+    }
+
+    public void setGroupBy(String groupBy) {
+        this.groupBy = groupBy;
+    }
+
+    public void setNodeFilterOptions(ApiNodeFilterOptions nodeFilterOptions) {
+        this.nodeFilterOptions = nodeFilterOptions;
+    }
+
+    public void setCondition(ApiCondition condition) {
+        this.condition = condition;
+    }
+
+    public void setPerfFilter(ApiPerfFilterOptions perfFilter) {
+        this.perfFilter = perfFilter;
+    }
+
+    public void setErrorFilter(ApiErrorFilterOptions errorFilter) {
+        this.errorFilter = errorFilter;
+    }
+
+    public void setElemHostFilter(ApiElemHostFilterOptions elemHostFilter) {
+        this.elemHostFilter = elemHostFilter;
+    }
+
+    public void setOtherFilter(ApiOtherFilterOptions otherFilter) {
+        this.otherFilter = otherFilter;
+    }
+
+    public Integer[] getTaskIds() {
+        return taskIds;
+    }
+
+    public int getTimePeriod() {
+        return timePeriod;
+    }
+
+    public List<String> getTableIndicators() {
+        return tableIndicators;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public String getGroupBy() {
+        return groupBy;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public ApiNodeFilterOptions getNodeFilterOptions() {
+        return nodeFilterOptions;
+    }
+
+    public ApiCondition getCondition() {
+        return condition;
+    }
+
+    public ApiPerfFilterOptions getPerfFilter() {
+        return perfFilter;
+    }
+
+    public ApiErrorFilterOptions getErrorFilter() {
+        return errorFilter;
+    }
+
+    public ApiElemHostFilterOptions getElemHostFilter() {
+        return elemHostFilter;
+    }
+
+    public ApiOtherFilterOptions getOtherFilter() {
+        return otherFilter;
+    }
+}
+
+package com.tingyun.network.api.report.bean.apireport;
+
+import com.tingyun.network.api.common.util.ReportDataUtils;
+import org.apache.commons.lang3.StringUtils;
+
+public class ApiNodeFilterOptions {
+    private int[] cityIds; 											// 城市id
+    private int[] ispIds;											//	运营商id
+    private int cityFilterMode;								//城市过滤选项
+    private int ispFilterMode;								//运营商过滤选项
+    private int targetHostsFilterMode; 					// 目标主机过滤 1:包含 2:排除 0:默认
+    private String[] targetHosts; 								// 目标主机
+    private int monitoringPointsFilterMode = 2;			// 1:按ip 2:按id 3:短信监测下按手机
+    private int monitoringPointsFilterBy = 1;				// 1:包含 2:排除  0:默认
+    private String[] monitoringPoints;						// 监测节点IP/ID
+    private int[] osVers;											// 操作系统选项
+    private int[] browers;										// 浏览器选项
+    private int[] speed;											// 连接方式
+    private int[] dest_city_id;				//主机下钻-封装目标城市id
+    private int[] dest_isp_id;				//主机下钻-封装目标运营商id
+    private int[] groupIds;					//私有节点组
+    private int dnsServerFilterMode = 1;				//0:什么都不做，1:包含 2:排除 dnsServer排除
+    private String[] dnsServer;
+    private int ipTypeFilterMode = 0;				//0:什么都不做，4:ipv4 6:ipv6 ipType排除
+    private String[] clientVersions; //客户端版本
+
+    private int hostDuplicateMode = 0; //域名重复解析选项，0：包含，1：排除   默认：0
+
+
+    public int[] getDest_city_id() {
+        return dest_city_id;
+    }
+    public void setDest_city_id(int[] dest_city_id) {
+        this.dest_city_id = dest_city_id;
+    }
+
+    public int[] getDest_isp_id() {
+        return dest_isp_id;
+    }
+    public void setDest_isp_id(int[] dest_isp_id) {
+        this.dest_isp_id = dest_isp_id;
+    }
+    public int[] getCityIds() {
+        return cityIds;
+    }
+    public void setCityIds(int[] cityIds) {
+        this.cityIds = cityIds;
+    }
+    public String getCityIdsStr(){
+        StringBuilder b = new StringBuilder();
+        if(cityIds==null||cityIds.length == 0)
+            return null;
+        int iMax = cityIds.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(cityIds[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+    }
+    public int[] getIspIds() {
+        return ispIds;
+    }
+    public void setIspIds(int[] ispIds) {
+        this.ispIds = ispIds;
+    }
+    public String getIspIdsStr(){
+        StringBuilder b = new StringBuilder();
+        if(ispIds==null||ispIds.length == 0)
+            return null;
+        int iMax = ispIds.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(ispIds[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+    }
+    public int getTargetHostsFilterMode() {
+        return targetHostsFilterMode;
+    }
+    public void setTargetHostsFilterMode(int targetHostsFilterMode) {
+        this.targetHostsFilterMode = targetHostsFilterMode;
+    }
+    public String[] getTargetHosts() {
+        return targetHosts;
+    }
+    public String getTargetHostsStr() {
+        StringBuilder b = new StringBuilder();
+        if(targetHosts==null||targetHosts.length == 0)
+            return null;
+        for(String targetHost : targetHosts) {
+            if(StringUtils.isNotBlank(targetHost))
+                b.append("'"+targetHost).append("',");
+        }
+        if(b.length()>0)
+            return b.substring(0,b.length()-1);
+        return null;
+    }
+    public void setTargetHosts(String[] targetHosts) {
+        this.targetHosts = targetHosts;
+    }
+    public int getMonitoringPointsFilterMode() {
+        return monitoringPointsFilterMode;
+    }
+    public int getMonitoringPointsFilterModeStr() {
+        return monitoringPointsFilterMode;
+    }
+    public void setMonitoringPointsFilterMode(int monitoringPointsFilterMode) {
+        this.monitoringPointsFilterMode = monitoringPointsFilterMode;
+    }
+    public int getMonitoringPointsFilterBy() {
+        return monitoringPointsFilterBy;
+    }
+    public void setMonitoringPointsFilterBy(int monitoringPointsFilterBy) {
+        this.monitoringPointsFilterBy = monitoringPointsFilterBy;
+    }
+    public String[] getMonitoringPoints() {
+        return monitoringPoints;
+    }
+    public String getMonitoringPointsStr() {
+        StringBuilder b = new StringBuilder();
+        if(monitoringPoints==null||monitoringPoints.length == 0)
+            return null;
+        for(String monitorPoint : monitoringPoints) {
+            if(StringUtils.isNotBlank(monitorPoint))
+                b.append(monitorPoint).append(",");
+        }
+        if(b.length()>0)
+            return b.substring(0,b.length()-1);
+        return null;
+    }
+
+    public String getProbeIpStr() {
+        StringBuilder b = new StringBuilder();
+        if(monitoringPoints==null||monitoringPoints.length == 0)
+            return null;
+        for(int i = 0; i<monitoringPoints.length; i++) {
+            if(StringUtils.isNotBlank(monitoringPoints[i])) {
+                b.append("'"+ ReportDataUtils.convertStringToIp(monitoringPoints[i])).append("',");
+            }
+        }
+        if(b.length()>0)
+            return b.substring(0, b.length()-1);
+        return null;
+    }
+
+    public void setMonitoringPoints(String[] monitoringPoints) {
+        this.monitoringPoints = monitoringPoints;
+    }
+    public int[] getOsVers() {
+        return osVers;
+    }
+    public String getOsVersStr(){
+        StringBuilder b = new StringBuilder();
+        if(osVers==null||osVers.length == 0)
+            return null;
+        int iMax = osVers.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(osVers[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+    }
+    public void setOsVers(int[] osVers) {
+        this.osVers = osVers;
+    }
+    public int[] getBrowers() {
+        return browers;
+    }
+    public String getBrowersStr(){
+        StringBuilder b = new StringBuilder();
+        if(browers==null||browers.length == 0)
+            return null;
+        int iMax = browers.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(browers[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+    }
+    public void setBrowers(int[] browers) {
+        this.browers = browers;
+    }
+    public int[] getSpeed() {
+        return speed;
+    }
+    public void setSpeed(int[] speed) {
+        this.speed = speed;
+    }
+    public String getSpeedStr(){
+        StringBuilder b = new StringBuilder();
+        if(speed==null||speed.length == 0)
+            return null;
+        int iMax = speed.length - 1;
+        for (int i = 0; ; i++) {
+            if(speed[i] == 9){
+                b.append(6).append(", ").append(7).append(", ");
+            }
+            b.append(speed[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(", ");
+        }
+    }
+    public int[] getGroupIds() {
+        return groupIds;
+    }
+    public void setGroupIds(int[] groupIds) {
+        this.groupIds = groupIds;
+    }
+    public String getGroupIdStr(){
+        StringBuilder b = new StringBuilder();
+        if(groupIds==null||groupIds.length == 0)
+            return null;
+        int iMax = groupIds.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(groupIds[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+    }
+
+    public String getClientVersionStr(){
+        StringBuilder b = new StringBuilder();
+        if(clientVersions==null||clientVersions.length == 0)
+            return null;
+        for(int i = 0; i<clientVersions.length; i++) {
+            if(StringUtils.isNotBlank(clientVersions[i])) {
+                b.append("'"+clientVersions[i]).append("',");
+            }
+        }
+        if(b.length()>0)
+            return b.substring(0, b.length()-1);
+        return null;
+    }
+
+    public int getDnsServerFilterMode() {
+        return dnsServerFilterMode;
+    }
+    public void setDnsServerFilterMode(int dnsServerFilterMode) {
+        this.dnsServerFilterMode = dnsServerFilterMode;
+    }
+    public String[] getDnsServer() {
+        return dnsServer;
+    }
+    public void setDnsServer(String[] dnsServer) {
+        this.dnsServer = dnsServer;
+    }
+
+    public String getDnsServersStr() {
+        StringBuilder b = new StringBuilder();
+        if(dnsServer==null||dnsServer.length == 0)
+            return null;
+        for(String ds : dnsServer) {
+            if(StringUtils.isNotBlank(ds))
+                b.append(ReportDataUtils.convertStringToIp(ds)).append(",");
+        }
+        if(b.length()>0)
+            return b.substring(0,b.length()-1);
+        return null;
+    }
+
+    public int getIpTypeFilterMode() {
+        return ipTypeFilterMode;
+    }
+
+    public void setIpTypeFilterMode(int ipTypeFilterMode) {
+        this.ipTypeFilterMode = ipTypeFilterMode;
+    }
+
+    public int getCityFilterMode() {
+        return cityFilterMode;
+    }
+    public void setCityFilterMode(int cityFilterMode) {
+        this.cityFilterMode = cityFilterMode;
+    }
+    public int getIspFilterMode() {
+        return ispFilterMode;
+    }
+    public void setIspFilterMode(int ispFilterMode) {
+        this.ispFilterMode = ispFilterMode;
+    }
+
+    public String[] getClientVersions() {
+        return clientVersions;
+    }
+
+    public void setClientVersions(String[] clientVersions) {
+        this.clientVersions = clientVersions;
+    }
+
+    public int getHostDuplicateMode() {
+        return hostDuplicateMode;
+    }
+
+    public void setHostDuplicateMode(int hostDuplicateMode) {
+        this.hostDuplicateMode = hostDuplicateMode;
+    }
+}
+package com.tingyun.network.api.report.bean.apireport;
+
+import com.tingyun.network.api.report.bean.advanced.SortOrder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.util.Date;
+import java.util.List;
+
+/***
+ * Api导出对应的条件入参对象
+ */
+@Data
+@EqualsAndHashCode
+public class ApiCondition {
+    private boolean resetTask; //是否重置多任务为单任务taskIds
+    private boolean isLongTermReport; //        是否为长期报表
+    private boolean isCloseLongTermReport;  //是否关闭按长期报表时间段处理
+    private int timeGranularity;					//时间粒度
+    private int timeGranularityMode;			//0:自动，1:指定
+    private int tmTick;
+    private String[] indicators;					//选中的指标
+    private int indicatorMode;					//0 选外面的 1选里面的
+    private int mapDimension;					//地图纬度：0 节点，1 主机
+    private String oldGroupByType;			//下钻前汇总方式
+    private int dodCycle;							//环比周期 0:default 1:前一个周期 2:前两个周期 3:上周本周期
+    private String statisticalMethod = "AVG";			//统计方法 AVG 均值， MEDIAN 中位数， STDDEV 标准差， PERCENTILE_CONT 分位数 default AVG
+    private Double percentileCont;			//分位数
+    private int pageSeq = -2;						//-1:汇总数据     0:全页面     >0:对应的事物步骤
+    private String pageSeqStr = "-2";						//-1:汇总数据     0:全页面     >0:对应的事物步骤
+    private int domainId;						// 域名id 0： 页面数据，1： 全部页面，其他：对应的域名id
+    private long time;
+    private int isZuanQ;
+
+    private int scatterType;
+    /**
+     * 自动刷新间隔， 毫秒数， 为0则不刷新
+     */
+    private int refreshInterval = 0;
+
+    /**
+     * 是否展示禁用及过期任务
+     */
+    private Boolean showDisableTask = false;
+    /**
+     * 云测任务是否是汇总
+     */
+    private int is_summary;
+
+    private List<String> nodeIds;
+    /**
+     * 后台排序字段名
+     */
+    private String sortField;
+
+    /**
+     * see {@link  SortOrder}
+     */
+    private SortOrder sortOrder;
+    /**
+     * 是否展示地图视角切换
+     */
+    private boolean showMapDimension;
+
+    /**
+     * cdn雷达图视图
+     */
+    private String cdnRadarView;
+
+    /**
+     * 深度调优任务的id
+     */
+    private int depthTaskId;
+
+    /**
+     * 标识为深度调优
+     */
+    private boolean cdnDepthTun;
+
+}
+package com.tingyun.network.api.report.bean.apireport;
+
+import com.tingyun.network.api.report.bean.indicator.IndicatorTaskMap;
+
+import java.io.Serializable;
+
+public class ApiPerfFilterOptions implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private int trimMode; 									// 0 - 关闭 1- 自动 2 - 手动
+	private int autoTrimMode = 1; 					// 自动trim的过滤方式 0 - 按总体过滤 1- 按所选图表维度过滤
+	private String trimIndicatorKey; 					// trim指标key
+	private int mannuallyTrimMode = -1; 			// 手动trim的过滤方式 0 - 按总下载时间过滤 1 -按当前性能指标过滤
+
+	private double trimPercentageAbove; 			// 自动舍弃百分比（上限）
+	private double trimPercentageBelow; 			// 自动舍弃百分比（下限）
+	private double trimValueAbove; 					// 手动指定舍弃掉超过该值（上限）的数据.
+	private double trimValueBelow; 					// 手动指定舍弃掉超过该值（下限）的数据.
+
+	public int getTrimMode() {
+		return trimMode;
+	}
+	public void setTrimMode(int trimMode) {
+		this.trimMode = trimMode;
+	}
+	public int getAutoTrimMode() {
+		return autoTrimMode;
+	}
+	public void setAutoTrimMode(int autoTrimMode) {
+		this.autoTrimMode = autoTrimMode;
+	}
+	public String getTrimIndicatorKey() {
+		return trimIndicatorKey;
+	}
+	public void setTrimIndicatorKey(String trimIndicatorKey) {
+		this.trimIndicatorKey = trimIndicatorKey;
+	}
+	public int getMannuallyTrimMode() {
+		return mannuallyTrimMode;
+	}
+	public void setMannuallyTrimMode(int mannuallyTrimMode) {
+		this.mannuallyTrimMode = mannuallyTrimMode;
+	}
+	public double getTrimPercentageAbove() {
+		return trimPercentageAbove;
+	}
+	public double getTrimPercentageAboveInSql() {
+		return trimPercentageAbove/100;
+	}
+	public void setTrimPercentageAbove(double trimPercentageAbove) {
+		this.trimPercentageAbove = trimPercentageAbove;
+	}
+	public double getTrimPercentageBelow() {
+		return trimPercentageBelow;
+	}
+	public double getTrimPercentageBelowInSql() {
+		return trimPercentageBelow/100;
+	}
+	public void setTrimPercentageBelow(double trimPercentageBelow) {
+		this.trimPercentageBelow = trimPercentageBelow;
+	}
+	public double getTrimValueAbove() {
+		return trimValueAbove;
+	}
+	public double getTrimValueAboveInSql() {
+		if(trimIndicatorKey==null)
+			return trimValueAbove;
+		return trimValueAbove* IndicatorTaskMap.getIndicator(trimIndicatorKey).getUnit_translator();
+	}
+	public void setTrimValueAbove(double trimValueAbove) {
+		this.trimValueAbove = trimValueAbove;
+	}
+	public double getTrimValueBelow() {
+		return trimValueBelow;
+	}
+	public double getTrimValueBelowInSql() {
+		if(trimIndicatorKey==null)
+			return trimValueBelow;
+		return trimValueBelow*IndicatorTaskMap.getIndicator(this.trimIndicatorKey).getUnit_translator();
+	}
+	public void setTrimValueBelow(double trimValueBelow) {
+		this.trimValueBelow = trimValueBelow;
+	}
+
+}
+package com.tingyun.network.api.report.bean.apireport;
+
+import java.io.Serializable;
+
+public class ApiErrorFilterOptions implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private int errorFilterMode = 2;				//0:什么都不做，1:包含 2:排除
+	private int[] excludeErrorCode;
+
+	public int[] getExcludeErrorCode() {
+		return excludeErrorCode;
+	}
+
+	public String getExcludeErrorCodeStr(){
+		StringBuilder b = new StringBuilder();
+		if(excludeErrorCode==null||excludeErrorCode.length == 0)
+			return null;
+		int iMax = excludeErrorCode.length - 1;
+        for (int i = 0; ; i++) {
+            b.append(excludeErrorCode[i]);
+            if (i == iMax)
+                return b.toString();
+            b.append(",");
+        }
+	}
+
+	public void setExcludeErrorCode(int[] excludeErrorCode) {
+		this.excludeErrorCode = excludeErrorCode;
+	}
+
+	public int getErrorFilterMode() {
+		return errorFilterMode;
+	}
+	public void setErrorFilterMode(int errorFilterMode) {
+		this.errorFilterMode = errorFilterMode;
+	}
+
+}
+package com.tingyun.network.api.report.bean.apireport;
+
+import java.io.Serializable;
+
+public class ApiElemHostFilterOptions implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private int elemHostTrimMode;	//0:默认1:包含 2:排除
+	private String[] elemHosts;
+
+	public int getElemHostTrimMode() {
+		return elemHostTrimMode;
+	}
+	public void setElemHostTrimMode(int elemHostTrimMode) {
+		this.elemHostTrimMode = elemHostTrimMode;
+	}
+	public String[] getElemHosts() {
+		return elemHosts;
+	}
+	public void setElemHosts(String[] elemHosts) {
+		this.elemHosts = elemHosts;
+	}
+
+}
+package com.tingyun.network.api.report.bean.apireport;
+
+import java.io.Serializable;
+
+public class ApiOtherFilterOptions implements Serializable {
+    private static final long serialVersionUID = -1720078075359443678L;
+    private int cpuMode = 0;   // 0:不过滤节点cpu使用率 1：过滤节点CPU使用率
+    private int cpuPreCent;
+
+    private int memMode = 0;   // 0:不过滤节点内存使用率 1：过滤节点内存使用率
+    private int memPreCent;
+
+    private int downMode = 0;   // 0:不过滤节点下载速度 1：过滤节点下载速度
+    private int downAbove;   //下载速度以上
+    private int downBelow;  //下载速度以下
+
+    public int getCpuMode() {
+        return cpuMode;
+    }
+
+    public void setCpuMode(int cpuMode) {
+        this.cpuMode = cpuMode;
+    }
+
+    public int getCpuPreCent() {
+        return cpuPreCent;
+    }
+
+    public void setCpuPreCent(int cpuPreCent) {
+        this.cpuPreCent = cpuPreCent;
+    }
+
+    public int getMemMode() {
+        return memMode;
+    }
+
+    public void setMemMode(int memMode) {
+        this.memMode = memMode;
+    }
+
+    public int getMemPreCent() {
+        return memPreCent;
+    }
+
+    public void setMemPreCent(int memPreCent) {
+        this.memPreCent = memPreCent;
+    }
+
+    public int getDownMode() {
+        return downMode;
+    }
+
+    public void setDownMode(int downMode) {
+        this.downMode = downMode;
+    }
+
+    public int getDownAbove() {
+        return downAbove;
+    }
+
+    public void setDownAbove(int downAbove) {
+        this.downAbove = downAbove;
+    }
+
+    public int getDownBelow() {
+        return downBelow;
+    }
+
+    public void setDownBelow(int downBelow) {
+        this.downBelow = downBelow;
+    }
+}
