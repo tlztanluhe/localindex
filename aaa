@@ -1054,13 +1054,249 @@ curl 'http://10.128.2.95:8080/network-api/export-data/excel-data?chart_ident=mul
   
   
   
+  文件监测-趋势-不对比
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/overview?cacheKey=7F6A7D199F17840555B542D3B7A8F3B7' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[116529],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["T","BY","AVL"],"indicatorMode":0,"tableIndicators":["T","AVL","BY","D","F","CT","RD","PT"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-overview-summary-S1-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":-1,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"116529"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":0,"ispFilterMode":0,"targetHostsFilterMode":0,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
   
   
+  文件监测包含 
+  
+概览 趋势 地域 地图 主机 错误
+ 文件监测趋势的指标筛选
+ 
+ 
+ 默认指标： 总下载时间 可用性 下载速度 DNS时间 建立连接时间 SSL握手时间 首包时间 内容下载时间 总下载字节数 多选 时间粒度： 自动 1 分钟 3 分钟 5 分钟 10 分钟 15 分钟 30 分钟 1 小时 2 小时 4 小时 8 小时 12 小时 天 周 月 环比周期： 不对比 前一周期 前两周期 上周本周期 上月本周期 前一天本周期 统计方法： 平均值 中位数 标准差 分位值
   
   
+  事务监测-趋势-不对比
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=764290E69F7FDDEBE1A8334B6B25E517' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[118003],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["T","BY","AVL"],"indicatorMode":0,"tableIndicators":["T","U","D","C","F","O","BY","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-2-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":-1,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"118003"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  事务-趋势-汇总趋势-全部页面
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=01234BA925D4FCC689758D9529262406' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[118003],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["T","BY","AVL"],"indicatorMode":0,"tableIndicators":["T","U","D","C","F","O","BY","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-2-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"118003"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  事务监测
+  汇总趋势 运营商 省份运营商 城市运营商 省份 城市 国家 自有点
+  
+  流媒体监测-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=02FD62AB75AA2E38FF7D8F737F671A3A' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[118005],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["WT","AVL","FC"],"indicatorMode":0,"tableIndicators":["WT","FC","CSS","BF","RB","BC","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-3-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"118005"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"WT","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  ping监测-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=F075EF30AC460E22EF2CA9733CF08B3A' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[115961],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["PA","PPL","D"],"indicatorMode":0,"tableIndicators":["PA","PMAX","PMIN","PPL","D","PE","PTRIM","PT"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-P1-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"115961"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"PA","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  
+  mtr趋势-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=604C327D6DABEA5B097984B9EF68776A' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[117749],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["MPA","MPL","MPH"],"indicatorMode":0,"tableIndicators":["MPA","MPL","MPH","D","PE","PT"],"fixedIndicators":["PE","PT"],"groupbyType":"single-trend-summary-R1-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"117749"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"MPA","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  手机页面监测-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=2E4C58EAF0DC278113CAE21EAD036411' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[118165],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["T","AVL","BY"],"indicatorMode":0,"tableIndicators":["T","U","D","C","F","O","BY","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-F102-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"118165"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  
+  手机文件监测-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=245E8C055C6D70CEE364E1691EEBBF70' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[117860],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["T","AVL","BY"],"indicatorMode":0,"tableIndicators":["T","RD","D","C","F","O","BY","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-S102-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"117860"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  
+  手机事务-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=82CC22E46F1573392FC36149FFBE19DD' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[118125],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["T","AVL","BY"],"indicatorMode":0,"tableIndicators":["T","U","D","C","F","O","BY","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-103-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"118125"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  
+  手机流媒体-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=F538B8A996EF8701751668A2F0698658' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[117828],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["WT","AVL","FC"],"indicatorMode":0,"tableIndicators":["WT","FC","CSS","BF","RB","BC","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-111-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":true,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"117828"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"WT","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  
+  手机ping-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=EF3F8D23EE15AD38AA12B27F043036B3' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[117855],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["PA","PPL"],"indicatorMode":0,"tableIndicators":["PA","PMAX","PMIN","PPL","D","PE","PTRIM","PT"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-P102-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"117855"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"PA","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
+  
+  私有协议-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=AD6AE6474D1117FE12BBA691C8BD5978' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[118108],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["C_T","AVL"],"indicatorMode":0,"tableIndicators":["C_T","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-255-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":false,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"118108"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"C_T","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
   
   
-  
+  手机短信-趋势-汇总趋势
+  curl 'http://10.128.2.95:8080/network-api/advanced/getAdvancedKey' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNmJmYzZkNS0xZTE0LTQ2ZmMtYWRlNS02MmZlZmViMGExNzAiLCJpZCI6ImFiZTEwMzdiLTNmZWEtNGFmZC1hMjEyLWQzZGRkMzlkZjc3NSIsIm5hbWUiOiJmNjY1MTg1MS00ZDM2LTQ1MTktODE3Yy04ZDQ3YmViMjE2NTkiLCJjb2RlIjoiOGY3ODgxOWUtOTcxMS00OTE0LTlkMzgtZDA3NzM4NmVkMmY2IiwiYWdyZWVtZW50SWQiOiJlY2RjYzZkOS05YWJhLTQ5MmMtODkwNS1iZjY4ZjI2YzFjY2IiLCJ0eXBlIjoiMTY5M2Q2YTktZjM1My00ZDdjLWEzNjktOGUyODFkMWM2M2FlIiwicmlnaHRSYW5nZSI6IjBkYTIzZjgyLWNjNDgtNDM4OS05MGM2LTdiYTAzZjlkYTExOSIsInJhbmRvbSI6IjQ3OTdhZjExLWUzMmEtNDNhYS05ZTNiLTY4ZmM4ZjY2MTJhZCJ9.jGBff1ano8uYKkiUIIumNRmZiB5iTGWeqQjuihkNxxFB9Mv3HjSSU_lFTV2u820r4JabhlVBz6I6jDzuwV7lNLlbm0zpPsn-7VDnehtM9UjZ-jysiUJKAPGZW-NeGzMnfgbSv5FtG934UqO6R6UvuTSktDK8LxpnkA4j08knuA1IISkcgQeBErKR3N0v6ofk4pePQf_PJrVdwJY5E-lcgC_lqXMxZixsM2PZ9ceIVqA-vWeWThrMHvyMlMU6LQr9VH0xXF3CoCXqEdvLsQs0czALey9Damj6RTRXhqGLp3CspEa_gHwrje1ueEWadsmRCxOUkeLRjK0AMVO2c49ysw' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: Hm_lvt_6aa15dc1069d23f04931ba7a4850d381=1684929965; org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=zh-CN' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://10.128.2.95:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://10.128.2.95:8080/network/monitor/trend?cacheKey=49A5D75493B2E5471D452271F78B29BB' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.0.0' \
+  --data-raw '{"condition":{"taskIds":[117830],"resetTask":true,"beginTime":1692076763000,"endTime":1692681563000,"timeMode":1,"relativeTime":10080,"timeGranularity":240,"timeGranularityMode":0,"indicators":["RT","AVL"],"indicatorMode":0,"tableIndicators":["RT","AVL","PE","PT","PTRIM"],"fixedIndicators":["PE","PT","PTRIM"],"groupbyType":"single-trend-summary-N105-line","mapDimension":0,"oldGroupByType":null,"dodCycle":0,"statisticalMethod":"AVG","percentileCont":null,"pageSeq":0,"pageSeqStr":"-2","domainId":0,"time":0,"isZuanQ":0,"scatterType":0,"refreshInterval":0,"showDisableTask":true,"is_summary":0,"nodeIds":null,"sortField":null,"sortOrder":null,"showMapDimension":false,"cdnRadarView":null,"depthTaskId":0,"cdnDepthTun":false,"timeCount":10080,"beginTimeStr":"2023-08-15 13:19","endTimeStr":"2023-08-22 13:19","longTermReport":false,"closeLongTermReport":false,"taskIdsStr":"117830"},"nodeFilter":{"cityIds":null,"ispIds":null,"cityFilterMode":1,"ispFilterMode":1,"targetHostsFilterMode":1,"targetHosts":null,"monitoringPointsFilterMode":2,"monitoringPointsFilterBy":1,"monitoringPoints":null,"osVers":null,"browers":null,"speed":null,"dest_city_id":null,"dest_isp_id":null,"groupIds":null,"dnsServerFilterMode":1,"dnsServer":null,"ipTypeFilterMode":0,"clientVersions":null,"hostDuplicateMode":0,"cityIdsStr":null,"ispIdsStr":null,"targetHostsStr":null,"monitoringPointsFilterModeStr":2,"osVersStr":null,"browersStr":null,"speedStr":null,"groupIdStr":null,"clientVersionStr":null,"dnsServersStr":null,"monitoringPointsStr":null,"probeIpStr":null},"perfFilter":{"trimMode":0,"autoTrimMode":0,"trimIndicatorKey":"RT","mannuallyTrimMode":-1,"trimPercentageAbove":86,"trimPercentageBelow":5,"trimValueAbove":0,"trimValueBelow":0,"trimPercentageAboveInSql":0.86,"trimPercentageBelowInSql":0.05,"trimValueBelowInSql":0,"trimValueAboveInSql":0},"errorFilter":{"errorFilterMode":2,"excludeErrorCode":null,"excludeErrorCodeStr":null},"elemHostFilter":{"elemHostTrimMode":0,"elemHosts":null},"otherFilter":{"cpuMode":0,"cpuPreCent":0,"memMode":0,"memPreCent":0,"downMode":0,"downAbove":0,"downBelow":0},"tablePaging":{"total":0,"sizePerPage":50,"currentPageIndex":1,"totalPages":0,"pageEnd":50,"pageStart":0},"changedTask":false,"isReport":0,"splitIsp":0,"timeZone":null,"locale":null,"showItemLabel":false,"chartId":null,"timeRangeFrom":null,"timeRangeTo":null}' \
+  --compressed \
+  --insecure
   
   
   
